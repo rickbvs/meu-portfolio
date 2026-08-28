@@ -2,23 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 1. Menu Mobile Toggle
   const navToggle = document.getElementById('navToggle');
-  const navMenu = document.getElementById('navMenu');
+const navMenu = document.getElementById('navMenu');
 
-  if (navToggle) {
-    navToggle.addEventListener('click', () => {
-      navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-      navMenu.style.flexDirection = 'column';
-      navMenu.style.position = 'absolute';
-      navMenu.style.top = '100%';
-      navMenu.style.left = '0';
-      navMenu.style.width = '100%';
-      navMenu.style.background = '#060911';
-      navMenu.style.padding = '20px';
-      navMenu.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
     });
-  }
+  });
+}
 
-  // 2. Animação de Entrada suave no Scroll (Intersection Observer)
+  // 2. Intersection Observer
   const revealElements = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -30,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealElements.forEach(el => observer.observe(el));
 
-  // 3. Contadores Numéricos Animados
+  // 3. Animated Counters
   const counters = document.querySelectorAll('.counter');
   let animated = false;
 
@@ -64,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const metricsSection = document.querySelector('.metrics-grid');
   if (metricsSection) countObserver.observe(metricsSection);
 
-  // 4. Filtro de Modelos de Portfólio
+  // 4. Filtro de Modelos
   const filterBtns = document.querySelectorAll('.filter-btn');
   const portfolioCards = document.querySelectorAll('.portfolio-card');
 

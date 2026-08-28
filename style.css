@@ -569,10 +569,60 @@ h1, h2, h3, h4 {
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .hero-title { font-size: 2.5rem; }
-  .calc-wrapper { grid-template-columns: 1fr; }
-  .metrics-grid { grid-template-columns: 1fr; gap: 16px; }
-  .nav-menu { display: none; }
-  .nav-toggle { display: block; }
+@media (max-width: 768px) {
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    width: 100%;
+  }
+
+  .nav-logo {
+    white-space: nowrap; 
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 15, 29, 0.98);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 20px;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+    padding: 6px 0;
+  }
+
+  .nav-cta-menu {
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .nav-toggle {
+    display: block;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
 }
