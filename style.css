@@ -125,13 +125,20 @@ h1, h2, h3, h4 {
 
 /* Navbar */
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  background: rgba(6, 9, 17, 0.8);
+  background: rgba(6, 9, 17, 0.85);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
-  padding: 18px 0;
+  padding: 0; /* Zeramos o padding da barra externa */
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar--hidden {
+  transform: translateY(-100%);
 }
 
 .nav-container {
@@ -141,7 +148,7 @@ h1, h2, h3, h4 {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 12px 24px; 
 }
 
 .nav-logo {
@@ -185,7 +192,7 @@ h1, h2, h3, h4 {
 
 /* Hero Section */
 .hero {
-  padding: 100px 0 70px;
+  padding: 140px 0 70px; 
   text-align: center;
 }
 
@@ -586,8 +593,12 @@ h1, h2, h3, h4 {
     padding: 0 16px;
   }
 
+  .navbar {
+    padding: 0;
+  }
+
   .nav-container {
-    padding: 12px 16px;
+    padding: 10px 16px;
   }
 
   .nav-logo {
@@ -606,7 +617,7 @@ h1, h2, h3, h4 {
 
   .nav-menu {
     position: fixed;
-    top: 65px;
+    top: 60px;
     left: 0;
     width: 100%;
     background: rgba(6, 9, 17, 0.98);
@@ -616,7 +627,7 @@ h1, h2, h3, h4 {
     align-items: center;
     padding: 24px 20px;
     gap: 18px;
-    display: none; 
+    display: none;
   }
 
   .nav-menu.active {
@@ -636,7 +647,7 @@ h1, h2, h3, h4 {
   }
 
   .hero {
-    padding: 90px 0 40px;
+    padding: 110px 0 40px;
   }
 
   h1, .hero-title {

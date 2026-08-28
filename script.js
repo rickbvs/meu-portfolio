@@ -124,4 +124,24 @@ if (navToggle && navMenu) {
     });
   }
 
+  // 7. Smart Sticky Navbar (Auto-hide on Scroll)
+  const navbar = document.querySelector('.navbar');
+  let lastScrollTop = 0;
+
+  window.addEventListener('scroll', () => {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (navMenu && navMenu.classList.contains('active')) {
+      return;
+    }
+
+    if (currentScroll > lastScrollTop && currentScroll > 80) {
+      navbar.classList.add('navbar--hidden');
+    } else {
+      navbar.classList.remove('navbar--hidden');
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  });
+
 });
