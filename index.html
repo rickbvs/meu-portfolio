@@ -3,229 +3,424 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rickbvs Dev | Desenvolvimento Web & Segurança Digital</title>
-  <meta name="description" content="Desenvolvimento de sites profissionais, landing pages de alta conversão e infraestrutura web de alta performance.">
-  
-  <!-- Otimização das fontes -->
+  <title>Rickbvs Dev | Sites e landing pages que levam clientes ao seu WhatsApp</title>
+  <meta name="description" content="Criação de sites e landing pages profissionais para empresas e autônomos: bonitos, rápidos, seguros, ótimos no celular e com botão direto para o WhatsApp. Peça um orçamento sem compromisso.">
+  <meta name="theme-color" content="#060a13">
+  <link rel="canonical" href="https://rickbvs-dev.vercel.app/">
+
+  <!-- Compartilhamento (WhatsApp, Facebook, LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://rickbvs-dev.vercel.app/">
+  <meta property="og:title" content="Rickbvs Dev | Sites e landing pages que levam clientes ao seu WhatsApp">
+  <meta property="og:description" content="Sites profissionais, rápidos e seguros, feitos sob medida para o seu negócio. Peça um orçamento sem compromisso.">
+
+  <!-- Ícone da aba (desenhado em código, sem precisar de arquivo de imagem) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230c1424'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='32' font-weight='700' fill='%235b8cff' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+
+  <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (ícones) -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-  
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- Dados para o Google entender quem você é -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Rickbvs Dev",
+    "url": "https://rickbvs-dev.vercel.app/",
+    "description": "Criação de sites e landing pages profissionais para empresas e profissionais autônomos.",
+    "email": "ricardoboasousa@gmail.com",
+    "telephone": "+5571996025066"
+  }
+  </script>
 </head>
 <body>
 
-  <div class="bg-glow"></div>
-  <div class="bg-grid"></div>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="container nav-container">
-      <a href="#" class="nav-logo">
+  <!-- Barra de navegação -->
+  <header class="navbar glass" id="navbar">
+    <div class="nav-container">
+      <a href="#topo" class="nav-logo" aria-label="Rickbvs Dev, voltar ao início">
         <span class="logo-code">&lt;</span>Rickbvs Dev<span class="logo-code">/&gt;</span>
       </a>
-      
-      <nav class="nav-menu" id="navMenu">
-        <a href="#diferenciais" class="nav-link">Vantagens</a>
-        <a href="#processo" class="nav-link">Como Funciona</a>
-        <a href="#calculadora" class="nav-link">Simular Investimento</a>
-        <a href="#contato" class="nav-link">Contato</a>
-        <!-- Botão agora fica dentro do menu -->
-        <a href="https://wa.me/5571996025066?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20um%20site%20profissional!" target="_blank" class="btn btn-primary nav-cta-menu">
-          <i class="fa-brands fa-whatsapp"></i> Falar Agora
+
+      <nav class="nav-menu" id="navMenu" aria-label="Menu principal">
+        <a href="#beneficios" class="nav-link">Vantagens</a>
+        <a href="#processo" class="nav-link">Como funciona</a>
+        <a href="#modelos" class="nav-link">Modelos</a>
+        <a href="#pedido" class="nav-link">Monte seu pedido</a>
+        <a href="#duvidas" class="nav-link">Dúvidas</a>
+        <a href="https://wa.me/5571996025066" data-wa="Olá, Ricardo! Vi o seu site e gostaria de pedir um orçamento." class="btn btn-whatsapp nav-cta">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Falar no WhatsApp
         </a>
       </nav>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
-        <i class="fa-solid fa-bars"></i>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navMenu">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-container">
-        <div class="hero-badge reveal">
-          <span class="pulse-dot"></span> Disponível para novos projetos
-        </div>
-        <h1 class="hero-title reveal">
-          Construindo sites rápidos, modernos e <span class="gradient-text">focados em conversão</span>
-        </h1>
-        <p class="hero-subtitle reveal">
-          Desenvolvimento web sob medida para empresas e profissionais autônomos. Páginas leves, seguras, integradas ao Google e prontas para atrair clientes pelo WhatsApp.
-        </p>
-        <div class="hero-actions reveal">
-          <a href="#calculadora" class="btn btn-primary btn-large">
-            <i class="fa-solid fa-calculator"></i> Simular Orçamento
-          </a>
-          <a href="#processo" class="btn btn-secondary btn-large">
-            <i class="fa-solid fa-diagram-project"></i> Como Funciona
-          </a>
-        </div>
+  <main id="conteudo">
 
-        <div class="metrics-grid reveal">
-          <div class="metric-card">
-            <h3 class="counter" data-target="100">0</h3><span class="metric-suffix">%</span>
-            <p>Tráfego Criptografado (HTTPS)</p>
-          </div>
-          <div class="metric-card">
-            <h3 class="counter" data-target="98">0</h3><span class="metric-suffix">+</span>
-            <p>Pontuação de Performance Mobile</p>
-          </div>
-          <div class="metric-card">
-            <h3 class="counter" data-target="100">0</h3><span class="metric-suffix">%</span>
-            <p>Adaptado para Celular (Responsivo)</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="diferenciais" class="section">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">Engenharia Web</span>
-          <h2>A estrutura que o seu negócio precisa</h2>
-          <p>Não entrego apenas um design bonito; entrego estabilidade, velocidade e proteção.</p>
-        </div>
-
-        <div class="cards-grid">
-          <div class="feature-card reveal" style="cursor: default;">
-            <div class="card-icon"><i class="fa-solid fa-lock"></i></div>
-            <h3>Navegação Segura (SSL)</h3>
-            <p>Certificado HTTPS obrigatório incluso, garantindo que os dados dos seus visitantes estejam criptografados e com selo de segurança.</p>
-          </div>
-
-          <div class="feature-card reveal" style="cursor: default;">
-            <div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div>
-            <h3>Carregamento Ultrarrápido</h3>
-            <p>Código limpo, minificado e sem bibliotecas pesadas desnecessárias, garantindo carregamento instantâneo no 4G/5G.</p>
-          </div>
-
-          <div class="feature-card reveal" style="cursor: default;">
-            <div class="card-icon"><i class="fa-brands fa-google"></i></div>
-            <h3>Pronto para o Google (SEO)</h3>
-            <p>Tags semânticas, indexação no Google Search Console e estrutura preparada para mecanismos de busca.</p>
-          </div>
-
-          <div class="feature-card reveal" style="cursor: default;">
-            <div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-            <h3>100% Responsivo</h3>
-            <p>Layouts adaptados para computadores, tablets e smartphones, com botões de chamada direta para o WhatsApp.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="processo" class="section bg-alt">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">Transparência & Agilidade</span>
-          <h2>Como funciona a criação do seu site</h2>
-          <p>Um processo simples, rápido e sem complicações técnicas para a sua empresa.</p>
-        </div>
-
-        <div class="cards-grid">
-          <div class="feature-card reveal" style="cursor: default;">
-            <div class="card-icon"><i class="fa-solid fa-comments"></i></div>
-            <h3 style="margin-top: 8px;">Alinhamento & Ideia</h3>
-            <p>Conversamos pelo WhatsApp para entender o objetivo do seu negócio, cores, referências e serviços a serem destacados.</p>
-          </div>
-
-          <div class="feature-card reveal" style="cursor: default;">
-            <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
-            <h3 style="margin-top: 8px;">Desenvolvimento & Design</h3>
-            <p>Construção da página com layout moderno, adaptado para celulares e otimizado para carregar de forma instantânea.</p>
-          </div>
-
-          <div class="feature-card reveal" style="cursor: default;">
-            <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-            <h3 style="margin-top: 8px;">Domínio & Segurança</h3>
-            <p>Configuração do domínio oficial (.com.br), certificado de segurança HTTPS e conexões criptografadas.</p>
-          </div>
-
-          <div class="feature-card reveal" style="cursor: default;">
-            <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
-            <h3 style="margin-top: 8px;">Entrega & Aprovação</h3>
-            <p>Você revisa todo o projeto no ar, validamos os botões de contato e seu site começa a receber clientes imediatamente.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="calculadora" class="section">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">Simulação Transparente</span>
-          <h2>Calcule uma estimativa para o seu site</h2>
-          <p>Selecione as funcionalidades que você precisa para visualizar uma previsão imediata.</p>
-        </div>
-
-        <div class="calc-wrapper reveal">
-          <div class="calc-options">
-            <label class="calc-item">
-              <input type="radio" name="projectType" value="450" checked>
-              <div class="calc-box">
-                <h4>Landing Page Direta (1 Página)</h4>
-                <p>Ideal para profissionais liberais e serviços específicos focados em vendas rápidas.</p>
-              </div>
-            </label>
-
-            <label class="calc-item">
-              <input type="radio" name="projectType" value="750">
-              <div class="calc-box">
-                <h4>Site Institucional Completo</h4>
-                <p>Múltiplas seções: história, catálogo de serviços, localização e institucional.</p>
-              </div>
-            </label>
-
-            <div class="calc-addons">
-              <h4>Adicionais opcionais:</h4>
-              <label class="addon-checkbox">
-                <input type="checkbox" class="addon" value="80">
-                <span>Blindagem Avançada Cloudflare (Firewall Anti-DDoS e WAF) (+ R$ 80)</span>
-              </label>
-              <label class="addon-checkbox">
-                <input type="checkbox" class="addon" value="70">
-                <span>Cadastro e Indexação no Google Search Console (+ R$ 70)</span>
-              </label>
-              <label class="addon-checkbox">
-                <input type="checkbox" class="addon" value="50">
-                <span>Formulário de Contato com Proteção Anti-Spam (+ R$ 50)</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="calc-summary">
-            <div class="summary-card">
-              <p class="summary-label">Investimento Estimado</p>
-              <div class="summary-price">
-                <span class="currency">R$</span>
-                <span id="totalPrice">450</span>
-              </div>
-              <p class="summary-desc">Pagamento facilitado via Pix ou cartão com contrato de entrega.</p>
-              <button id="btnSendQuote" class="btn btn-primary btn-block">
-                <i class="fa-brands fa-whatsapp"></i> Contratar essa Estrutura
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato" class="section bg-alt">
-      <div class="container">
-        <div class="contact-box reveal">
-          <h2>Vamos criar o site da sua empresa?</h2>
-          <p>Entre em contato direto pelo WhatsApp para conversarmos sobre a sua ideia sem compromisso.</p>
-          <div class="contact-buttons">
-            <a href="https://wa.me/5571996025066?text=Ol%C3%A1%20Ricardo%2C%20quero%20conversar%20sobre%20um%20projeto!" target="_blank" class="btn btn-primary btn-large">
-              <i class="fa-brands fa-whatsapp"></i> Conversar pelo WhatsApp
+    <!-- Topo -->
+    <section class="hero" id="topo">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-badge"><span class="pulse-dot" aria-hidden="true"></span> Disponível para novos projetos</p>
+          <h1 class="hero-title">Um site profissional para o seu negócio receber clientes pelo WhatsApp</h1>
+          <p class="hero-subtitle">
+            Eu crio o seu site ou landing page do começo ao fim: bonito, rápido, seguro e fácil de usar no celular. Você não precisa entender de tecnologia. É só me contar sobre o seu negócio.
+          </p>
+          <div class="hero-actions">
+            <a href="https://wa.me/5571996025066" data-wa="Olá, Ricardo! Vi o seu site e gostaria de pedir um orçamento para o meu negócio." class="btn btn-whatsapp btn-large">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Pedir orçamento no WhatsApp
             </a>
+            <a href="#processo" class="btn btn-glass btn-large">Ver como funciona</a>
           </div>
+          <ul class="hero-points">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Orçamento sem compromisso</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Atendimento direto comigo</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Funciona bem no celular</li>
+          </ul>
+        </div>
+
+        <!-- Ilustração decorativa: um site no computador e no celular -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="mock-browser glass">
+            <div class="mock-bar">
+              <span></span><span></span><span></span>
+              <div class="mock-url">seunegocio.com.br</div>
+            </div>
+            <div class="mock-body">
+              <div class="mock-line lg w60"></div>
+              <div class="mock-line lg w85"></div>
+              <div class="mock-line w90"></div>
+              <div class="mock-line w70"></div>
+              <div class="mock-btn"><i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp</div>
+              <div class="mock-tiles"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="mock-phone glass">
+            <div class="mock-notch"></div>
+            <div class="mock-line lg w85"></div>
+            <div class="mock-line w90"></div>
+            <div class="mock-line w60"></div>
+            <div class="mock-btn small"><i class="fa-brands fa-whatsapp"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vantagens -->
+    <section id="beneficios" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>O que o seu site faz pelo seu negócio</h2>
+          <p>Um site bonito é só o começo. O objetivo é que quem visita entenda o que você faz e entre em contato com você.</p>
+        </div>
+
+        <div class="bento">
+          <article class="glass tile wide">
+            <div class="tile-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></div>
+            <h3>Leva o cliente direto para o seu WhatsApp</h3>
+            <p>O visitante lê, entende e, com um toque, já está conversando com você. Coloco botões de WhatsApp nos pontos certos da página, para ninguém precisar procurar o seu contato.</p>
+          </article>
+
+          <article class="glass tile">
+            <div class="tile-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></div>
+            <h3>Bonito em qualquer tela</h3>
+            <p>O site se ajusta sozinho ao celular, ao tablet e ao computador.</p>
+          </article>
+
+          <article class="glass tile">
+            <div class="tile-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></div>
+            <h3>Abre rápido</h3>
+            <p>Faço o site leve, sem peso desnecessário, para carregar bem mesmo com internet de celular.</p>
+          </article>
+
+          <article class="glass tile wide">
+            <div class="tile-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></div>
+            <h3>Cadeado de segurança no endereço</h3>
+            <p>O site funciona com HTTPS, aquele cadeado que aparece ao lado do endereço. Ele protege as informações de quem visita e passa confiança de que o seu negócio é sério.</p>
+          </article>
+
+          <article class="glass tile">
+            <div class="tile-icon"><i class="fa-brands fa-google" aria-hidden="true"></i></div>
+            <h3>Preparado para o Google</h3>
+            <p>Deixo a estrutura organizada para o Google entender o seu site. Ninguém pode prometer o primeiro lugar, mas a base fica certa.</p>
+          </article>
+
+          <article class="glass tile wide">
+            <div class="tile-icon"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
+            <h3>Feito sob medida para você</h3>
+            <p>Nada de modelo pronto igual ao do vizinho. Converso com você sobre cores, serviços e referências, e o site fica com a cara do seu negócio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section id="processo" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Como funciona, do primeiro contato ao site no ar</h2>
+          <p>Um caminho simples, sem complicação técnica e com você participando de cada etapa.</p>
+        </div>
+
+        <ol class="steps">
+          <li class="glass step">
+            <span class="step-num">1</span>
+            <h3>Conversa no WhatsApp</h3>
+            <p>Você me conta sobre o seu negócio, o que quer destacar e o que espera do site. Eu explico as opções e combinamos valor e prazo.</p>
+          </li>
+          <li class="glass step">
+            <span class="step-num">2</span>
+            <h3>Acordo e entrada</h3>
+            <p>Fechamos o combinado em contrato. Uma entrada, definida conforme o tamanho do projeto, garante o início do trabalho. Pagamento por Pix ou cartão, com opção de parcelar.</p>
+          </li>
+          <li class="glass step">
+            <span class="step-num">3</span>
+            <h3>Criação e aprovação</h3>
+            <p>Eu desenvolvo o site e mostro o resultado. Você pede os ajustes que quiser dentro das rodadas de revisão incluídas.</p>
+          </li>
+          <li class="glass step">
+            <span class="step-num">4</span>
+            <h3>Site no ar</h3>
+            <p>Com tudo aprovado, configuramos o endereço, o cadeado de segurança e testamos os botões de contato. Seu site passa a receber clientes.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- O que está incluso -->
+    <section id="incluso" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>O que está incluso e o que é combinado à parte</h2>
+          <p>Transparência desde o início, para não ter surpresa no meio do caminho.</p>
+        </div>
+
+        <div class="included-grid">
+          <div class="glass panel">
+            <h3>Incluso em todo projeto</h3>
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Design sob medida para o seu negócio</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Adaptação para celular, tablet e computador</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Botões de WhatsApp nos pontos certos</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Cadeado de segurança (HTTPS)</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Estrutura preparada para o Google</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Até 5 rodadas de revisão (ajustes) antes da entrega</li>
+              <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Contrato com tudo o que foi combinado</li>
+            </ul>
+            <p class="panel-note">Sem mensalidade pelo desenvolvimento: o valor do projeto é fechado e completo.</p>
+          </div>
+
+          <div class="glass panel">
+            <h3>Combinado à parte</h3>
+            <ul class="plus-list">
+              <li><i class="fa-solid fa-circle-plus" aria-hidden="true"></i> Endereço do site (domínio, como o .com.br)</li>
+              <li><i class="fa-solid fa-circle-plus" aria-hidden="true"></i> Hospedagem (o lugar onde o site fica no ar)</li>
+              <li><i class="fa-solid fa-circle-plus" aria-hidden="true"></i> Manutenção depois da entrega, conforme o tamanho do projeto</li>
+              <li><i class="fa-solid fa-circle-plus" aria-hidden="true"></i> Extras opcionais, que você escolhe na seção abaixo</li>
+            </ul>
+            <p class="panel-note">Eu explico as opções de endereço e hospedagem com calma, no WhatsApp, e ajudo você a escolher.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modelos de demonstração -->
+    <section id="modelos" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Modelos de demonstração</h2>
+          <p>Criei três modelos de landing page para você ver, na prática, estilos bem diferentes. As empresas e as informações são fictícias: servem só para mostrar como o seu site pode ficar.</p>
+        </div>
+
+        <div class="demos">
+          <a class="glass demo-card" href="modelos/studio-aurora.html" target="_blank" rel="noopener">
+            <div class="demo-preview demo-aurora" aria-hidden="true"><b></b><i></i><i></i><em></em></div>
+            <div class="demo-info">
+              <span class="demo-badge">Modelo de demonstração</span>
+              <h3>Studio Aurora</h3>
+              <p>Exemplo para salão de beleza. Estilo delicado, com tons suaves e letras elegantes.</p>
+              <span class="demo-link">Ver o modelo</span>
+            </div>
+          </a>
+
+          <a class="glass demo-card" href="modelos/alfa-contabil.html" target="_blank" rel="noopener">
+            <div class="demo-preview demo-alfa" aria-hidden="true"><b></b><i></i><i></i><em></em></div>
+            <div class="demo-info">
+              <span class="demo-badge">Modelo de demonstração</span>
+              <h3>Alfa Contábil</h3>
+              <p>Exemplo para escritório de contabilidade. Estilo sério e limpo, que passa confiança.</p>
+              <span class="demo-link">Ver o modelo</span>
+            </div>
+          </a>
+
+          <a class="glass demo-card" href="modelos/pulse-academia.html" target="_blank" rel="noopener">
+            <div class="demo-preview demo-pulse" aria-hidden="true"><b></b><i></i><i></i><em></em></div>
+            <div class="demo-info">
+              <span class="demo-badge">Modelo de demonstração</span>
+              <h3>Pulse Academia</h3>
+              <p>Exemplo para academia. Estilo forte e energético, com letras grandes e cor viva.</p>
+              <span class="demo-link">Ver o modelo</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monte seu pedido -->
+    <section id="pedido" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Monte o seu pedido</h2>
+          <p>Escolha o que faz sentido para você e envie para mim. Não é uma compra: é só um jeito de começarmos a conversa já com o essencial em mãos.</p>
+        </div>
+
+        <div class="builder">
+          <div class="builder-options glass panel">
+            <div class="field">
+              <label for="bizName" class="field-label">Qual é o nome e o ramo do seu negócio? <span class="optional">(opcional)</span></label>
+              <input id="bizName" type="text" maxlength="80" placeholder="Escreva aqui o nome da empresa e o que ela faz" autocomplete="organization">
+            </div>
+
+            <fieldset class="choice-group">
+              <legend>Que tipo de site você precisa?</legend>
+
+              <label class="choice">
+                <input type="radio" name="projectType" value="Landing page (1 página)" checked>
+                <span class="choice-box">
+                  <strong>Landing page</strong>
+                  <span class="choice-price">A partir de R$ 800</span>
+                  <span>Uma página única e direta, feita para apresentar o seu serviço e levar o cliente ao WhatsApp.</span>
+                </span>
+              </label>
+
+              <label class="choice">
+                <input type="radio" name="projectType" value="Site institucional completo (várias seções)">
+                <span class="choice-box">
+                  <strong>Site institucional completo</strong>
+                  <span class="choice-price">A partir de R$ 1.500</span>
+                  <span>Várias seções: quem você é, serviços, localização e contato. Passa mais confiança e conta mais sobre o negócio.</span>
+                </span>
+              </label>
+
+              <label class="choice">
+                <input type="radio" name="projectType" value="Ainda não sei, quero ajuda para escolher">
+                <span class="choice-box">
+                  <strong>Ainda não sei</strong>
+                  <span>Sem problema. Conversamos e eu indico o melhor caminho para o seu caso.</span>
+                </span>
+              </label>
+            </fieldset>
+
+            <fieldset class="choice-group">
+              <legend>Extras opcionais</legend>
+
+              <label class="choice">
+                <input type="checkbox" class="addon" value="Proteção extra contra ataques (Cloudflare)">
+                <span class="choice-box">
+                  <strong>Proteção extra contra ataques</strong>
+                  <span>Uma barreira a mais contra acessos maliciosos e quedas do site.</span>
+                </span>
+              </label>
+
+              <label class="choice">
+                <input type="checkbox" class="addon" value="Cadastro no Google (Search Console)">
+                <span class="choice-box">
+                  <strong>Cadastro no Google</strong>
+                  <span>Aviso o Google de que o seu site existe, para ele começar a ser encontrado nas buscas.</span>
+                </span>
+              </label>
+
+              <label class="choice">
+                <input type="checkbox" class="addon" value="Formulário de contato com proteção contra spam">
+                <span class="choice-box">
+                  <strong>Formulário de contato</strong>
+                  <span>O cliente também pode mandar mensagem por formulário, protegido contra mensagens automáticas indesejadas.</span>
+                </span>
+              </label>
+            </fieldset>
+          </div>
+
+          <aside class="summary glass panel" aria-live="polite">
+            <h3>Resumo do seu pedido</h3>
+            <dl class="summary-list">
+              <dt>Negócio</dt>
+              <dd id="sumBiz">Não informado</dd>
+              <dt>Tipo de site</dt>
+              <dd id="sumType"></dd>
+              <dt>Extras</dt>
+              <dd id="sumExtras">Nenhum por enquanto</dd>
+            </dl>
+            <p class="summary-note">Os valores mostrados são o ponto de partida. O valor exato e o prazo são combinados na conversa, depois que eu entender o seu projeto. Sem compromisso.</p>
+            <button id="btnSendQuote" class="btn btn-whatsapp btn-block" type="button">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Enviar pedido no WhatsApp
+            </button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dúvidas frequentes -->
+    <section id="duvidas" class="section">
+      <div class="container faq-wrap">
+        <div class="section-head">
+          <h2>Dúvidas frequentes</h2>
+          <p>Se a sua dúvida não estiver aqui, é só me chamar no WhatsApp.</p>
+        </div>
+
+        <div class="faq">
+          <details class="glass">
+            <summary>Preciso entender de tecnologia?</summary>
+            <p>Não. Eu cuido de toda a parte técnica e explico tudo em linguagem simples. Você só precisa me contar sobre o seu negócio e dizer o que gostou ou não.</p>
+          </details>
+          <details class="glass">
+            <summary>Quanto custa um site?</summary>
+            <p>Uma landing page começa a partir de R$ 800 e um site institucional completo, a partir de R$ 1.500. O valor exato depende do que o seu projeto precisa, por isso fecho o orçamento na conversa, sem compromisso. Endereço (domínio) e hospedagem são cobrados à parte.</p>
+          </details>
+          <details class="glass">
+            <summary>Quanto tempo leva para ficar pronto?</summary>
+            <p>O prazo varia conforme o tamanho do projeto. Combinamos uma data realista no WhatsApp, antes de fecharmos o contrato.</p>
+          </details>
+          <details class="glass">
+            <summary>Como funciona o pagamento?</summary>
+            <p>Aceito Pix e cartão, com opção de parcelar. Pede-se uma entrada para iniciar o projeto, e o restante é combinado conforme o contrato. Tudo fica registrado por escrito.</p>
+          </details>
+          <details class="glass">
+            <summary>Posso pedir alterações depois que o site estiver pronto?</summary>
+            <p>Durante a criação, você tem até 5 rodadas de revisão. Cada rodada é uma lista de ajustes que você me envia de uma vez. Depois da entrega, pequenas manutenções são combinadas conforme o tamanho do projeto.</p>
+          </details>
+          <details class="glass">
+            <summary>Quem paga o endereço (domínio) e a hospedagem?</summary>
+            <p>Esses dois itens são cobrados à parte, porque pertencem ao seu negócio. Eu explico as opções, ajudo você a escolher e configuro tudo para o site entrar no ar.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chamada final -->
+    <section id="contato" class="section">
+      <div class="container">
+        <div class="contact-box glass">
+          <h2>Vamos conversar sobre o site do seu negócio?</h2>
+          <p>Me chame no WhatsApp. Eu explico tudo com calma, sem termos técnicos e sem compromisso.</p>
+          <a href="https://wa.me/5571996025066" data-wa="Olá, Ricardo! Quero conversar sobre um site para o meu negócio." class="btn btn-whatsapp btn-large">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Conversar com o Ricardo
+          </a>
+          <p class="contact-alt">Prefere e-mail? Escreva para <a href="mailto:ricardoboasousa@gmail.com">ricardoboasousa@gmail.com</a></p>
         </div>
       </div>
     </section>
@@ -233,10 +428,16 @@
 
   <footer class="footer">
     <div class="container footer-content">
-      <p>&copy; 2026 Rickbvs Dev • Desenvolvimento Web & Engenharia de Software.</p>
-      <p class="footer-security"><i class="fa-solid fa-lock"></i> Contate Rickbvs para uma Hospedagem Segura & com Criptografia SSL</p>
+      <p>&copy; 2026 Rickbvs Dev. Criação de sites e landing pages.</p>
+      <a href="#topo">Voltar ao topo</a>
     </div>
   </footer>
+
+  <!-- Botão flutuante do WhatsApp -->
+  <a class="wa-float" id="waFloat" href="https://wa.me/5571996025066" data-wa="Olá, Ricardo! Vi o seu site e gostaria de conversar sobre um projeto." aria-label="Falar com o Ricardo no WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    <span>Falar no WhatsApp</span>
+  </a>
 
   <script src="script.js"></script>
 </body>

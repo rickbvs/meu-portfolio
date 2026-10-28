@@ -1,147 +1,140 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Menu Mobile Toggle
+  const WA_NUMBER = '5571996025066';
+  const waLink = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+  // 1. Links de WhatsApp: cada botão tem sua mensagem em data-wa
+  document.querySelectorAll('[data-wa]').forEach(a => {
+    a.href = waLink(a.dataset.wa);
+    a.target = '_blank';
+    a.rel = 'noopener';
+  });
+
+  // 2. Menu mobile
   const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
+  const navMenu = document.getElementById('navMenu');
 
-if (navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
+  const closeMenu = () => {
+    if (!navMenu) return;
+    navMenu.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Abrir menu');
+    navToggle.querySelector('i').className = 'fa-solid fa-bars';
+  };
 
-  document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-    });
-  });
-}
-
-  // 2. Intersection Observer
-  const revealElements = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  revealElements.forEach(el => observer.observe(el));
-
-  // 3. Animated Counters
-  const counters = document.querySelectorAll('.counter');
-  let animated = false;
-
-  const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !animated) {
-        counters.forEach(counter => {
-          const target = +counter.getAttribute('data-target');
-          if (target === 0) {
-            counter.innerText = '0';
-            return;
-          }
-          let count = 0;
-          const increment = target / 40;
-          const updateCount = () => {
-            count += increment;
-            if (count < target) {
-              counter.innerText = Math.ceil(count);
-              setTimeout(updateCount, 25);
-            } else {
-              counter.innerText = target;
-            }
-          };
-          updateCount();
-        });
-        animated = true;
-      }
-    });
-  }, { threshold: 0.5 });
-
-  const metricsSection = document.querySelector('.metrics-grid');
-  if (metricsSection) countObserver.observe(metricsSection);
-
-  // 4. Filtro de Modelos
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const portfolioCards = document.querySelectorAll('.portfolio-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filter = btn.getAttribute('data-filter');
-
-      portfolioCards.forEach(card => {
-        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-          card.classList.remove('hide');
-        } else {
-          card.classList.add('hide');
-        }
-      });
-    });
-  });
-
-  // 5. Calculadora de Orçamento em Tempo Real
-  const baseRadios = document.querySelectorAll('input[name="projectType"]');
-  const addons = document.querySelectorAll('.addon');
-  const totalPriceDisplay = document.getElementById('totalPrice');
-  const btnSendQuote = document.getElementById('btnSendQuote');
-
-  function calculateTotal() {
-    let total = 0;
-    
-    // Tipo base
-    baseRadios.forEach(radio => {
-      if (radio.checked) total += parseInt(radio.value);
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      navToggle.querySelector('i').className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
     });
 
-    // Adicionais
-    addons.forEach(addon => {
-      if (addon.checked) total += parseInt(addon.value);
+    navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) closeMenu();
     });
 
-    totalPriceDisplay.innerText = total;
-    return total;
-  }
-
-  baseRadios.forEach(radio => radio.addEventListener('change', calculateTotal));
-  addons.forEach(addon => addon.addEventListener('change', calculateTotal));
-
-  // 6. Enviar Orçamento Direto para o WhatsApp
-  if (btnSendQuote) {
-    btnSendQuote.addEventListener('click', () => {
-      const valor = calculateTotal();
-      let tipo = document.querySelector('input[name="projectType"]:checked').value === "450" 
-        ? "Landing Page Direta" 
-        : "Site Institucional Completo";
-
-      const mensagem = `Olá Ricardo! Simulei um orçamento no seu site para um projeto de *${tipo}* com adicionais de segurança, totalizando aproximadamente *R$ ${valor}*. Gostaria de fechar os detalhes!`;
-      const url = `https://wa.me/5571996025066?text=${encodeURIComponent(mensagem)}`;
-      
-      window.open(url, '_blank');
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
     });
   }
 
-  // 7. Smart Sticky Navbar (Auto-hide on Scroll)
-  const navbar = document.querySelector('.navbar');
-  let lastScrollTop = 0;
+  // 3. Barra de navegação que esconde ao rolar para baixo
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+  let ticking = false;
 
   window.addEventListener('scroll', () => {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      const current = window.pageYOffset || document.documentElement.scrollTop;
+      const menuOpen = navMenu && navMenu.classList.contains('active');
 
-    if (navMenu && navMenu.classList.contains('active')) {
-      return;
+      if (navbar && !menuOpen) {
+        if (current > lastScroll && current > 120) {
+          navbar.classList.add('navbar--hidden');
+        } else {
+          navbar.classList.remove('navbar--hidden');
+        }
+      }
+      lastScroll = current <= 0 ? 0 : current;
+      ticking = false;
+    });
+  }, { passive: true });
+
+  // 4. Monte seu pedido: resumo ao vivo + mensagem pronta para o WhatsApp
+  const bizInput = document.getElementById('bizName');
+  const typeRadios = document.querySelectorAll('input[name="projectType"]');
+  const addons = document.querySelectorAll('.addon');
+  const sumBiz = document.getElementById('sumBiz');
+  const sumType = document.getElementById('sumType');
+  const sumExtras = document.getElementById('sumExtras');
+  const btnSendQuote = document.getElementById('btnSendQuote');
+
+  function getSelection() {
+    const checked = document.querySelector('input[name="projectType"]:checked');
+    return {
+      biz: bizInput ? bizInput.value.trim() : '',
+      type: checked ? checked.value : '',
+      extras: Array.from(addons).filter(a => a.checked).map(a => a.value)
+    };
+  }
+
+  function renderSummary() {
+    const { biz, type, extras } = getSelection();
+    sumBiz.textContent = biz || 'Não informado';
+    sumType.textContent = type;
+    sumExtras.textContent = extras.length ? extras.join(', ') : 'Nenhum por enquanto';
+  }
+
+  function buildMessage({ biz, type, extras }) {
+    const lines = ['Olá, Ricardo! Montei o meu pedido no seu site e gostaria de conversar sobre valor e prazo.', ''];
+    if (biz) lines.push(`*Meu negócio:* ${biz}`);
+    lines.push(`*Tipo de site:* ${type}`);
+    lines.push(`*Extras:* ${extras.length ? extras.join(', ') : 'nenhum por enquanto'}`);
+    lines.push('', 'Pode me passar um orçamento?');
+    return lines.join('\n');
+  }
+
+  if (sumBiz && sumType && sumExtras) {
+    if (bizInput) bizInput.addEventListener('input', renderSummary);
+    typeRadios.forEach(r => r.addEventListener('change', renderSummary));
+    addons.forEach(a => a.addEventListener('change', renderSummary));
+    renderSummary();
+  }
+
+  if (btnSendQuote) {
+    btnSendQuote.addEventListener('click', () => {
+      window.open(waLink(buildMessage(getSelection())), '_blank', 'noopener');
+    });
+  }
+
+  // 5. Botão flutuante: aparece depois do topo e some na chamada final (que já tem botão)
+  const waFloat = document.getElementById('waFloat');
+  const hero = document.getElementById('topo');
+  const contact = document.getElementById('contato');
+
+  if (waFloat && hero && 'IntersectionObserver' in window) {
+    let heroVisible = true;
+    let contactVisible = false;
+    const update = () => waFloat.classList.toggle('visible', !heroVisible && !contactVisible);
+
+    new IntersectionObserver(([entry]) => {
+      heroVisible = entry.isIntersecting;
+      update();
+    }).observe(hero);
+
+    if (contact) {
+      new IntersectionObserver(([entry]) => {
+        contactVisible = entry.isIntersecting;
+        update();
+      }).observe(contact);
     }
-
-    if (currentScroll > lastScrollTop && currentScroll > 80) {
-      navbar.classList.add('navbar--hidden');
-    } else {
-      navbar.classList.remove('navbar--hidden');
-    }
-
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-  });
+  } else if (waFloat) {
+    waFloat.classList.add('visible');
+  }
 
 });

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Alfa Contábil (modelo de demonstração) | Rickbvs Dev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#0f2a44; --navy2:#14506b; --teal:#35c2b0; --paper:#f4f7fa; --ink:#14212e; --muted:#566677; }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Manrope',system-ui,sans-serif; color:var(--ink); background:#fff; line-height:1.65; }
+    h1,h2,h3 { line-height:1.15; letter-spacing:-.02em; }
+    a { color:inherit; }
+    :focus-visible { outline:2px solid var(--teal); outline-offset:3px; }
+    .wrap { width:min(1100px,100% - 40px); margin-inline:auto; }
+
+    .demo-bar { background:#1d1d24; color:#f3f3f7; font-size:.85rem; padding:10px 0; }
+    .demo-bar .wrap { display:flex; flex-wrap:wrap; gap:6px 18px; justify-content:space-between; }
+    .demo-bar a { color:#9fe3b4; font-weight:700; text-decoration:none; }
+
+    .hero { background:linear-gradient(135deg,var(--navy),var(--navy2)); color:#fff; padding-bottom:90px; }
+    .top { display:flex; justify-content:space-between; align-items:center; padding:24px 0; }
+    .logo { font-weight:800; font-size:1.35rem; text-decoration:none; }
+    .logo b { color:var(--teal); }
+    .top nav { display:flex; gap:26px; font-size:.92rem; color:#cfe3ee; }
+    .top nav a { text-decoration:none; }
+
+    .hero-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:50px; align-items:center; padding-top:40px; }
+    .hero h1 { font-size:clamp(2.1rem,4.6vw,3.4rem); margin-bottom:20px; }
+    .hero p { color:#cfe3ee; font-size:1.08rem; max-width:50ch; margin-bottom:30px; }
+    .btn { display:inline-block; padding:15px 28px; border-radius:12px; background:var(--teal); color:#062a2a; font-weight:800; text-decoration:none; transition:transform .2s; }
+    .btn:hover { transform:translateY(-2px); }
+
+    .panel { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:20px; padding:30px; backdrop-filter:blur(10px); }
+    .panel h2 { font-size:1.1rem; margin-bottom:16px; }
+    .panel ul { list-style:none; display:grid; gap:12px; color:#e3f1f7; }
+    .panel li::before { content:"✓"; color:var(--teal); font-weight:800; margin-right:10px; }
+
+    .block { padding:84px 0; }
+    .block.alt { background:var(--paper); }
+    .block h2 { font-size:clamp(1.8rem,3.6vw,2.6rem); margin-bottom:12px; }
+    .lead { color:var(--muted); max-width:56ch; margin-bottom:38px; }
+
+    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:22px; }
+    .service { border:1px solid #dde6ee; border-radius:16px; padding:30px 26px; background:#fff; border-top:4px solid var(--teal); }
+    .service h3 { font-size:1.2rem; margin-bottom:8px; }
+    .service p { color:var(--muted); font-size:.97rem; }
+
+    .steps { list-style:none; display:grid; gap:18px; counter-reset:s; max-width:760px; }
+    .steps li { counter-increment:s; display:grid; grid-template-columns:48px 1fr; gap:16px; align-items:start; }
+    .steps li::before { content:counter(s); display:grid; place-items:center; width:48px; height:48px; border-radius:50%; background:var(--navy); color:#fff; font-weight:800; }
+    .steps h3 { font-size:1.1rem; }
+    .steps p { color:var(--muted); }
+
+    .place { border:1.5px dashed var(--navy2); border-radius:16px; padding:30px; color:var(--muted); background:#fff; }
+    .cta { background:var(--navy); color:#fff; text-align:center; padding:84px 0; }
+    .cta h2 { font-size:clamp(1.8rem,3.8vw,2.7rem); margin-bottom:12px; }
+    .cta p { color:#cfe3ee; margin-bottom:28px; }
+    footer { padding:28px 0 40px; text-align:center; font-size:.85rem; color:var(--muted); }
+
+    @media (max-width:768px) {
+      .top nav { display:none; }
+      .hero-grid { grid-template-columns:1fr; padding-top:20px; }
+      .block { padding:58px 0; }
+      .btn { display:block; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-bar">
+    <div class="wrap">
+      <span>Modelo de demonstração: empresa e informações fictícias. Os botões levam ao WhatsApp do Ricardo.</span>
+      <span><a href="../#modelos">Voltar ao site</a></span>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="top">
+        <a class="logo" href="#">Alfa<b> Contábil</b></a>
+        <nav aria-label="Menu">
+          <a href="#servicos">Serviços</a>
+          <a href="#como">Como começar</a>
+          <a href="#onde">Contato</a>
+        </nav>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <h1>Contabilidade clara para o seu negócio crescer sem dor de cabeça</h1>
+          <p>Cuidamos dos impostos, documentos e obrigações da sua empresa, e explicamos tudo em linguagem simples.</p>
+          <a class="btn" href="https://wa.me/5571996025066?text=Ol%C3%A1%2C%20Ricardo!%20Vi%20o%20modelo%20Alfa%20Cont%C3%A1bil%20e%20quero%20uma%20landing%20page%20com%20um%20estilo%20parecido." target="_blank" rel="noopener">Falar com um contador no WhatsApp</a>
+        </div>
+        <aside class="panel">
+          <h2>Para quem atendemos</h2>
+          <ul>
+            <li>Quem quer abrir uma empresa</li>
+            <li>Pequenos negócios e autônomos</li>
+            <li>Quem quer trocar de contador</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="block" id="servicos">
+      <div class="wrap">
+        <h2>O que fazemos pela sua empresa</h2>
+        <p class="lead">Do primeiro dia ao dia a dia, você fica tranquilo para cuidar do que importa: o seu negócio.</p>
+        <div class="services">
+          <article class="service"><h3>Abertura de empresa</h3><p>Orientamos você em cada etapa do registro, sem burocracia confusa.</p></article>
+          <article class="service"><h3>Impostos e declarações</h3><p>Organizamos as obrigações para você estar sempre em dia.</p></article>
+          <article class="service"><h3>Folha de pagamento</h3><p>Cuidamos da rotina de quem trabalha com você.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block alt" id="como">
+      <div class="wrap">
+        <h2>Como começar</h2>
+        <p class="lead">Um primeiro passo simples, sem compromisso.</p>
+        <ol class="steps">
+          <li><div><h3>Chame no WhatsApp</h3><p>Conte rapidamente sobre o seu negócio.</p></div></li>
+          <li><div><h3>Entendemos a sua necessidade</h3><p>Fazemos algumas perguntas e explicamos como podemos ajudar.</p></div></li>
+          <li><div><h3>Você recebe uma proposta</h3><p>Com tudo claro, você decide com calma.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block" id="onde">
+      <div class="wrap">
+        <h2>Contato</h2>
+        <div class="place">Aqui entram o endereço, os horários, o e-mail e o mapa do seu escritório.</div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <h2>Vamos conversar sobre a sua empresa?</h2>
+        <p>Chame no WhatsApp e tire as suas dúvidas.</p>
+        <a class="btn" href="https://wa.me/5571996025066?text=Ol%C3%A1%2C%20Ricardo!%20Vi%20o%20modelo%20Alfa%20Cont%C3%A1bil%20e%20quero%20uma%20landing%20page%20com%20um%20estilo%20parecido." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Alfa Contábil é uma empresa fictícia. Modelo criado por Rickbvs Dev para demonstração de estilo.</div>
+  </footer>
+
+</body>
+</html>

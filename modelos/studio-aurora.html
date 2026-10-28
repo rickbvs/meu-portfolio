@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Studio Aurora (modelo de demonstração) | Rickbvs Dev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --cream:#fbf3ee; --blush:#f1d9d9; --rose:#b8546f; --rose-d:#8f3a53; --ink:#3b2230; --muted:#6f5560; }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'DM Sans',system-ui,sans-serif; background:var(--cream); color:var(--ink); line-height:1.65; }
+    h1,h2,h3 { font-family:'Cormorant Garamond',Georgia,serif; line-height:1.1; font-weight:600; }
+    a { color:inherit; }
+    :focus-visible { outline:2px solid var(--rose); outline-offset:3px; }
+    .wrap { width:min(1080px,100% - 40px); margin-inline:auto; }
+
+    .demo-bar { background:#1d1d24; color:#f3f3f7; font-size:.85rem; padding:10px 0; }
+    .demo-bar .wrap { display:flex; flex-wrap:wrap; gap:6px 18px; justify-content:space-between; align-items:center; }
+    .demo-bar a { color:#9fe3b4; font-weight:700; text-decoration:none; }
+
+    header.top { padding:22px 0; }
+    header.top .wrap { display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-weight:700; color:var(--rose-d); text-decoration:none; }
+    header nav { display:flex; gap:28px; font-size:.95rem; }
+    header nav a { text-decoration:none; color:var(--muted); }
+
+    .btn { display:inline-block; padding:15px 30px; border-radius:999px; background:var(--rose); color:#fff; font-weight:700; text-decoration:none; transition:background .2s; }
+    .btn:hover { background:var(--rose-d); }
+
+    .hero { padding:50px 0 90px; }
+    .hero .wrap { display:grid; grid-template-columns:1.1fr .9fr; gap:50px; align-items:center; }
+    .hero h1 { font-size:clamp(2.6rem,6vw,4.4rem); margin-bottom:20px; color:var(--rose-d); }
+    .hero p { color:var(--muted); font-size:1.1rem; max-width:46ch; margin-bottom:30px; }
+    .arch { aspect-ratio:3/4; max-width:380px; margin-left:auto; border-radius:999px 999px 24px 24px; background:linear-gradient(160deg,#f1c9cf,#e3a3b3 60%,#c9748e); position:relative; width:100%; }
+    .arch::after { content:""; position:absolute; inset:14px; border:1.5px solid rgba(255,255,255,.55); border-radius:999px 999px 14px 14px; }
+
+    section.block { padding:80px 0; }
+    section.block.alt { background:var(--blush); }
+    .block h2 { font-size:clamp(2rem,4vw,3rem); margin-bottom:34px; color:var(--rose-d); }
+    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; }
+    .service { background:#fff; border-radius:22px; padding:32px 28px; border:1px solid #efd9d9; }
+    .service h3 { font-size:1.6rem; margin-bottom:10px; }
+    .service p { color:var(--muted); }
+
+    .steps { list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:26px; counter-reset:s; }
+    .steps li { counter-increment:s; padding-top:22px; border-top:2px solid var(--rose); }
+    .steps li::before { content:counter(s); font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:var(--rose); display:block; }
+    .steps h3 { font-size:1.4rem; margin:4px 0 6px; }
+    .steps p { color:var(--muted); }
+
+    .place { background:#fff; border:1.5px dashed var(--rose); border-radius:22px; padding:34px; color:var(--muted); }
+    .cta { text-align:center; padding:90px 0; }
+    .cta h2 { font-size:clamp(2.2rem,5vw,3.4rem); color:var(--rose-d); margin-bottom:14px; }
+    .cta p { color:var(--muted); margin-bottom:28px; }
+    footer { padding:30px 0 40px; text-align:center; font-size:.85rem; color:var(--muted); }
+
+    @media (max-width:768px) {
+      header nav { display:none; }
+      .hero { padding:20px 0 60px; }
+      .hero .wrap { grid-template-columns:1fr; }
+      .arch { margin:0 auto; max-width:260px; }
+      section.block { padding:56px 0; }
+      .btn { display:block; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-bar">
+    <div class="wrap">
+      <span>Modelo de demonstração: empresa e informações fictícias. Os botões levam ao WhatsApp do Ricardo.</span>
+      <span><a href="../#modelos">Voltar ao site</a></span>
+    </div>
+  </div>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="#">Studio Aurora</a>
+      <nav aria-label="Menu">
+        <a href="#servicos">Serviços</a>
+        <a href="#como">Como agendar</a>
+        <a href="#onde">Onde estamos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <h1>Realce a sua beleza em um ambiente feito para você</h1>
+          <p>Atendimento com hora marcada, cuidado em cada detalhe e um espaço pensado para você se sentir bem.</p>
+          <a class="btn" href="https://wa.me/5571996025066?text=Ol%C3%A1%2C%20Ricardo!%20Vi%20o%20modelo%20Studio%20Aurora%20e%20quero%20uma%20landing%20page%20com%20um%20estilo%20parecido." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+        </div>
+        <div class="arch" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="block alt" id="servicos">
+      <div class="wrap">
+        <h2>Nossos serviços</h2>
+        <div class="services">
+          <article class="service"><h3>Corte e finalização</h3><p>Um visual que combina com o seu jeito, do corte ao acabamento.</p></article>
+          <article class="service"><h3>Coloração</h3><p>Cor e brilho escolhidos com você, com atenção ao cuidado dos fios.</p></article>
+          <article class="service"><h3>Unhas</h3><p>Manicure e pedicure com capricho, em um ambiente tranquilo.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="como">
+      <div class="wrap">
+        <h2>Agendar é simples</h2>
+        <ol class="steps">
+          <li><h3>Chame no WhatsApp</h3><p>Conte qual serviço você quer.</p></li>
+          <li><h3>Escolha o horário</h3><p>Combinamos o dia e a hora que ficam melhores para você.</p></li>
+          <li><h3>Venha relaxar</h3><p>É só chegar e aproveitar o seu momento.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block alt" id="onde">
+      <div class="wrap">
+        <h2>Onde estamos</h2>
+        <div class="place">Aqui entram o endereço, os horários de atendimento e o mapa do seu negócio.</div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <h2>Pronta para o seu momento?</h2>
+        <p>Chame a gente e escolha o seu horário.</p>
+        <a class="btn" href="https://wa.me/5571996025066?text=Ol%C3%A1%2C%20Ricardo!%20Vi%20o%20modelo%20Studio%20Aurora%20e%20quero%20uma%20landing%20page%20com%20um%20estilo%20parecido." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Studio Aurora é uma empresa fictícia. Modelo criado por Rickbvs Dev para demonstração de estilo.</div>
+  </footer>
+
+</body>
+</html>
